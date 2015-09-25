@@ -1,0 +1,9 @@
+{
+  "name": "context-service",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.0.2",
+    "express": "^4.1.1",
+    "path": "^0.11.14"
+  }
+}

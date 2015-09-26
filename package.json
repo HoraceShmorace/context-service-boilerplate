@@ -1,9 +1,11 @@
 {
-  "name": "context-service",
-  "main": "server.js",
-  "dependencies": {
-    "body-parser": "^1.0.2",
-    "express": "^4.1.1",
-    "path": "^0.11.14"
-  }
+	"name": "context-service-boilerplate",
+	"version": "0.0.1",
+	"main": "server.js",
+	"dependencies": {
+		"body-parser": "^1.0.2",
+		"npm-contextualizer": "git+https://github.com/HoraceShmorace/npm-contextualizer.git",
+		"express": "^4.1.1",
+		"path": "^0.11.14"
+	}
 }

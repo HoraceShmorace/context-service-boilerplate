@@ -14,23 +14,21 @@ if (cluster.isMaster) {
 	});
 } else {
 	var express = require('express'),
-		mongoose = require('mongoose'),
 		bodyParser = require('body-parser'),
-		contextualizer = require('contextualizer'),
-		config = require('./config/contextualizer'),
+		contextualizer = require('npm-contextualizer'),
 		app = express(),
-		port = process.env.PORT || config.port;
+		port = process.env.PORT || 9090;
 
 	app.use(bodyParser.json());
-	app.use(bodyParser.urlencoded({
-		extended: true
-	}));
 
 	app.get('/', function(req, res) {
-		res.end("<p>Context Service</p><a href=\"\" target=\"_blank\">Github</a>");
+		res.end("<p>Context Service Boilerplate</p>");
 		return;
 	});
-	app.get('/:org', contextualizer);
+
+	app.get('/:org', function(req, res, next) {
+		contextualizer(req, res, require('./config/contextualizer'));
+	});
 
 	app.listen(port, function() {
 		console.log('Worker ' + cluster.worker.id + ' is listening on port ' + port + "...");

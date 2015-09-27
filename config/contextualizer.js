@@ -11,8 +11,20 @@ var config = {
         }
     })(process.env.NODE_ENV),
 
+
+    waitForPageScrape: false,
+
     minQualifyingScore: 5,
-    urlWeight: 5,
+
+    urlDataPoint: {
+        name: 'url',
+        weight: 5,
+        filter: function(value) {
+            var url = require('url').parse(value);
+            return url.pathname;
+        }
+    },
+
     htmlDataPoints: [{
         tag: 'link',
         nameAttr: 'rel',
